@@ -5,11 +5,8 @@ setup()
 pinMode(2,INPUT);//установка ножки камня на чтение сигналов из оптопары
 enum rezhim
 {
-ust, work,reset
-};
-rezhim R=work
-rezhim U=ust
-rezhim Res=reset//перечисляемый тип устанавливаем в работу 
+ust=U, work=W,reset=R
+};//перечисляемый тип устанавливаем в работу 
 }
 short pusk_push()// в эту функцию можно передать значение счетчика (для разных камней разная выдержка будет short pusk_push(short t), но пока смысла нет,камень один 
 {
