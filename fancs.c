@@ -9,8 +9,9 @@ ust=U, work=W,reset=R
 rezhim mode=work 
 setup()
 {
-pinMode(2,INPUT);//установка ножки камня на чтение сигналов из оптопары
-
+pinMode(opt_pin,INPUT);//установка ножки камня на чтение сигналов из оптопары
+pinMode(set_pin,INPUT);
+pinMode(pusk_pin,INPUT);
 }
 byte pusk_push()// в эту функцию можно передать значение счетчика (для разных камней разная выдержка будет short pusk_push(short t), но пока смысла нет,камень один 
 {
@@ -21,9 +22,13 @@ byte pusk_push()// в эту функцию можно передать знач
 }
 bool push_set()
 {
-  Min_T=
-//считываем уровня сигнала на пине, если низкий сразу возвращаем False , иначе True
-//При нажатии меняем переменную R на другую перчисляемую
+//считываем уровня сигнала на пине цикле, если время низкий сразу возвращаем False , иначе True
+  Min_t=millis();
+  while ((millis()-Min_t)<Min_push)
+    {
+      if (digitalRead(set_pin)==0) return False;
+    }
+  return True;
 }
 void print_char(byte c)// функция печати пункта меню
 {
