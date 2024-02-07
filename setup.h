@@ -3,8 +3,8 @@
 #include <EEPROM.h>
 #include <LiquidCrystal_I2C.h>
 //---------------------------------------------------
-#typedef byte unsigned char
-#typedef u_int unsigned int
+#typedef byte unsigned char //это псевдонимы, вместо unsigned char (что долго писать и не отражает сути , нам не нужен символ, это будет просто
+#typedef u_int unsigned int //байт (8 бит) , которые мы не будем интерпретировать как символ, а просто как Байт
 #define F_CPU 16000000// частота работы камня 16МГц в нашем случае
 #define pusk_pin 6 // установка пина на котором будет висеть кнопка Пуск/Стоп
 #define set_pin 5 // пин кнопки установки режима (номера пинов от балды написал)
