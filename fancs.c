@@ -15,7 +15,7 @@ pinMode(pusk_pin,INPUT);
 }
 byte pusk_push()//  
 {
-  Min_t=millis();
+ int Min_t=millis();
   while ((millis()-Min_t)<Time_Hold) // в цикле считаем до времени после которого считается зажим клавиши
     {
       if (digitalRead(set_pin)==0)// если кнопку отпустили в течении Time_Hold
